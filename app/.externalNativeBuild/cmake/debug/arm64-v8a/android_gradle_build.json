@@ -1,0 +1,38 @@
+
+{
+	"buildFiles" : [ "/Users/bloit/jbloit/repos/decodeMp3/app/CMakeLists.txt" ],
+	"cleanCommands" : 
+	[
+		"/Users/bloit/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/bloit/jbloit/repos/decodeMp3/app/.externalNativeBuild/cmake/debug/arm64-v8a --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"native-lib-Debug-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "native-lib",
+			"buildCommand" : "/Users/bloit/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/bloit/jbloit/repos/decodeMp3/app/.externalNativeBuild/cmake/debug/arm64-v8a --target native-lib",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android --gcc-toolchain=/Users/bloit/Library/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/bloit/Library/Android/sdk/ndk-bundle/sysroot  -Dnative_lib_EXPORTS -isystem /Users/bloit/Library/Android/sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -isystem /Users/bloit/Library/Android/sdk/ndk-bundle/sources/android/support/include -isystem /Users/bloit/Library/Android/sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include  -isystem /Users/bloit/Library/Android/sdk/ndk-bundle/sysroot/usr/include/aarch64-linux-android -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -std=c++11 -std=c++11 -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "/Users/bloit/jbloit/repos/decodeMp3/app/src/main/cpp/native-lib.cpp",
+					"workingDirectory" : "/Users/bloit/jbloit/repos/decodeMp3/app/.externalNativeBuild/cmake/debug/arm64-v8a"
+				}
+			],
+			"output" : "/Users/bloit/jbloit/repos/decodeMp3/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so",
+			"toolchain" : "7466949112572607133"
+		}
+	},
+	"toolchains" : 
+	{
+		"7466949112572607133" : 
+		{
+			"cCompilerExecutable" : "/Users/bloit/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/Users/bloit/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
+		}
+	}
+}

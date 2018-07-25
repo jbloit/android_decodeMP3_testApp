@@ -48,12 +48,21 @@ public class Decoder {
         masterFd.close();
     }
 
-    public void testDecodeMp3Lame() throws Exception {
-        decode(R.raw.sinusoid, 804.f, true);
+    public float [] testDecodeMp3Lame() throws Exception {
+
+        short [] decoded = decode(R.raw.sinusoid, 804.f, true);
+
+        float[] transformed = new float[decoded.length];
+
+        for (int j=0;j<decoded.length;j++) {
+            transformed[j] = (float)decoded[j] / Short.MAX_VALUE;
+        }
+        return transformed;
     }
 
-    private void decode(int testinput, float maxerror, boolean reconfigure) throws IOException {
+    private short [] decode(int testinput, float maxerror, boolean reconfigure) throws IOException {
         short [] decoded = decodeToMemory(testinput, false);
+        return decoded;
 
         
 

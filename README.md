@@ -9,3 +9,6 @@ This is basically a quick hack, putting together these 2 resources:
 2. audio buffer to wav file with [WaveFileWriter.java](https://github.com/philburk/jsyn/blob/master/src/com/jsyn/util/WaveFileWriter.java)
 
 See original files if you need to decode other formats.
+
+***WARNING:*** Although this works, it is **painfully slow.**
+Tested on a Samsung Galaxy S6 phone, the decoding time took roughly as long as the file duration...

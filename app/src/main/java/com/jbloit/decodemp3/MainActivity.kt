@@ -35,10 +35,9 @@ class MainActivity : AppCompatActivity() {
 
         val baseDir =  Environment.getExternalStorageDirectory()
         val testDir = File(baseDir.absolutePath + "/test")
-//        mp3File = File(testDir, "sinusoid.mp3")
-//        wavFile = File(testDir, "sinusoid.wav")
-        mp3File = File(testDir, "violon_impair.mp3")
-        wavFile = File(testDir, "violon_impair.wav")
+        mp3File = File(testDir, "sinusoid.mp3")
+        wavFile = File(testDir, "sinusoid.wav")
+
 
 
         // Example of a call to a native method

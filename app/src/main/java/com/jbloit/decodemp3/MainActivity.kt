@@ -35,8 +35,11 @@ class MainActivity : AppCompatActivity() {
 
         val baseDir =  Environment.getExternalStorageDirectory()
         val testDir = File(baseDir.absolutePath + "/test")
-        mp3File = File(testDir, "sinusoid.mp3")
-        wavFile = File(testDir, "sinusoid.wav")
+//        mp3File = File(testDir, "sinusoid.mp3")
+//        wavFile = File(testDir, "sinusoid.wav")
+        mp3File = File(testDir, "violon_impair.mp3")
+        wavFile = File(testDir, "violon_impair.wav")
+
 
         // Example of a call to a native method
 //        sample_text.text = stringFromJNI()
@@ -73,7 +76,7 @@ class MainActivity : AppCompatActivity() {
 
 
     fun runFFmpegCommand(){
-        val command = arrayOf("-i", "$mp3File", "$wavFile")
+        val command = arrayOf("-y", "-i", "$mp3File", "$wavFile")
         try {
             ffmpeg?.execute(command, object : ExecuteBinaryResponseHandler(){
                 override fun onStart() {
@@ -101,7 +104,9 @@ class MainActivity : AppCompatActivity() {
                     super.onFinish()
                     countMS = SystemClock.uptimeMillis() - countMS
                     sample_text.text = "ffmpeg command executed in $countMS msec"
+                    Log.d(TAG, "onFinish :ffmpeg command executed in $countMS msec")
                 }
+
             })
         } catch (e: FFmpegCommandAlreadyRunningException) {
             Log.w(TAG, "load ffmpeg failed")

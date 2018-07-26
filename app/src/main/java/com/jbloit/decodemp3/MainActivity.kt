@@ -19,10 +19,6 @@ class MainActivity : AppCompatActivity() {
 
         initPermissions()
 
-        val decoder = Decoder()
-        decoder.setUp()
-        val audioBuffer: FloatArray = decoder.testDecodeMp3Lame()
-
         val baseDir =  Environment.getExternalStorageDirectory()
         val testDir = File(baseDir.absolutePath + "/test")
         val wavFile = File(testDir, "sinusoid.wav")
@@ -31,8 +27,6 @@ class MainActivity : AppCompatActivity() {
         fileWriter.write(audioBuffer, 0, audioBuffer.size)
         fileWriter.close()
         Log.d(TAG, "WROTE FILE")
-
-
 
         // Example of a call to a native method
         sample_text.text = stringFromJNI()
@@ -63,6 +57,7 @@ class MainActivity : AppCompatActivity() {
      * which is packaged with this application.
      */
     external fun stringFromJNI(): String
+    external fun decodeMp3():String
 
     companion object {
 
@@ -71,4 +66,6 @@ class MainActivity : AppCompatActivity() {
             System.loadLibrary("native-lib")
         }
     }
+
+
 }

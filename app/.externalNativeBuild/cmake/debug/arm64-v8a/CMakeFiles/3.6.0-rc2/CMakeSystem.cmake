@@ -1,9 +1,9 @@
-set(CMAKE_HOST_SYSTEM "Darwin-17.6.0")
-set(CMAKE_HOST_SYSTEM_NAME "Darwin")
-set(CMAKE_HOST_SYSTEM_VERSION "17.6.0")
+set(CMAKE_HOST_SYSTEM "Linux-4.15.8-300.fc27.x86_64")
+set(CMAKE_HOST_SYSTEM_NAME "Linux")
+set(CMAKE_HOST_SYSTEM_VERSION "4.15.8-300.fc27.x86_64")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
-include("/Users/bloit/Library/Android/sdk/ndk-bundle/build/cmake/android.toolchain.cmake")
+include("/home/jbloit/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake")
 
 set(CMAKE_SYSTEM "Android-1")
 set(CMAKE_SYSTEM_NAME "Android")

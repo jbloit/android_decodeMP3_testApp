@@ -1,0 +1,3 @@
+[submodule "app/src/main/cpp/tinyaudiodecoder"]
+	path = app/src/main/cpp/tinyaudiodecoder
+	url = https://github.com/paugit/tinyaudiodecoder.git

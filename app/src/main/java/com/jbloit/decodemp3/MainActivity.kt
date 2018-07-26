@@ -1,7 +1,11 @@
 package com.jbloit.decodemp3
 
 import android.Manifest
+import android.content.ContentResolver
 import android.content.pm.PackageManager
+import android.content.res.AssetManager
+import android.content.res.Resources
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
@@ -19,19 +23,9 @@ class MainActivity : AppCompatActivity() {
 
         initPermissions()
 
-        val baseDir =  Environment.getExternalStorageDirectory()
-        val testDir = File(baseDir.absolutePath + "/test")
-        val wavFile = File(testDir, "sinusoid.wav")
-
-        val fileWriter = WaveFileWriter(wavFile)
-        fileWriter.write(audioBuffer, 0, audioBuffer.size)
-        fileWriter.close()
-        Log.d(TAG, "WROTE FILE")
-
-        // Example of a call to a native method
+        decodeMp3(assets, "sinusoid.mp3")
         sample_text.text = stringFromJNI()
     }
-
 
 
     fun initPermissions() {
@@ -52,12 +46,8 @@ class MainActivity : AppCompatActivity() {
         return check == PackageManager.PERMISSION_GRANTED
     }
 
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
     external fun stringFromJNI(): String
-    external fun decodeMp3():String
+    external fun decodeMp3(assetManager: AssetManager,  audioFilePath: String)
 
     companion object {
 

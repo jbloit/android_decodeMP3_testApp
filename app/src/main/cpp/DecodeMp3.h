@@ -5,19 +5,27 @@
 #ifndef ANDROID_DECODEMP3_TESTAPP_DECODEMP3_H
 #define ANDROID_DECODEMP3_TESTAPP_DECODEMP3_H
 
+#include <iostream>
+#include <array>
 #include "TinyAudioDecoder_Android.h"
 #include "TinyAudioDecoder.h"
+
 
 class DecodeMp3 {
 public:
     DecodeMp3();
     ~DecodeMp3();
 
-    TinyAudioDecoder decoder = TinyAudioDecoder();
 
-    void decode();
+//    TinyAudioDecoder decoder = TinyAudioDecoder();
+    void decode(AAssetManager* assetManager, const char* audioFile);
+
+private:
+    TinyAudioDecoder *decoder;
 
 };
+
+
 
 
 #endif //ANDROID_DECODEMP3_TESTAPP_DECODEMP3_H

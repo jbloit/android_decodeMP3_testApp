@@ -1,14 +1,5 @@
 # android_decodeMP3_testApp
 
-Decodes "sinsusoid.mp3" stored in app resources, and save to external storage in "test/sinusoid.wav".
+Tries to decodes "sinsusoid.mp3" stored in app assets, using TinyAudioDecoder.
 
-This is basically a quick hack, putting together these 2 resources:
-
-1. mp3 to audio buffer with [DecoderTest.java](https://android.googlesource.com/platform/cts/+/jb-mr2-release/tests/tests/media/src/android/media/cts/DecoderTest.java)
-
-2. audio buffer to wav file with [WaveFileWriter.java](https://github.com/philburk/jsyn/blob/master/src/com/jsyn/util/WaveFileWriter.java)
-
-See original files if you need to decode other formats.
-
-***WARNING:*** Although this works, it is **painfully slow.**
-Tested on a Samsung Galaxy S6 phone, the decoding time took roughly as long as the file duration...
+The code on this branch compiles, but crashes on decoder Init. Fill free to give it a spin. I can't figure out the problem at the moment...

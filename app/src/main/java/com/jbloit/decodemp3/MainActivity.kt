@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.os.SystemClock
 import android.support.v4.app.ActivityCompat
 import android.util.Log
 import com.github.hiteshsondhi88.libffmpeg.ExecuteBinaryResponseHandler
@@ -21,6 +22,11 @@ class MainActivity : AppCompatActivity() {
 
     var ffmpeg : FFmpeg? = null
 
+    lateinit var  mp3File: File
+    lateinit var  wavFile: File
+
+    var countMS: Long = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,10 +35,11 @@ class MainActivity : AppCompatActivity() {
 
         val baseDir =  Environment.getExternalStorageDirectory()
         val testDir = File(baseDir.absolutePath + "/test")
-        val wavFile = File(testDir, "sinusoid.wav")
+        mp3File = File(testDir, "sinusoid.mp3")
+        wavFile = File(testDir, "sinusoid.wav")
 
         // Example of a call to a native method
-        sample_text.text = stringFromJNI()
+//        sample_text.text = stringFromJNI()
 
 
         ffmpeg = FFmpeg.getInstance(this)
@@ -66,11 +73,12 @@ class MainActivity : AppCompatActivity() {
 
 
     fun runFFmpegCommand(){
-        val command = arrayOf("-version")
+        val command = arrayOf("-i", "$mp3File", "$wavFile")
         try {
             ffmpeg?.execute(command, object : ExecuteBinaryResponseHandler(){
                 override fun onStart() {
                     super.onStart()
+                    countMS = SystemClock.uptimeMillis()
                 }
 
                 override fun onProgress(message: String?) {
@@ -91,6 +99,8 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onFinish() {
                     super.onFinish()
+                    countMS = SystemClock.uptimeMillis() - countMS
+                    sample_text.text = "ffmpeg command executed in $countMS msec"
                 }
             })
         } catch (e: FFmpegCommandAlreadyRunningException) {

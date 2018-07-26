@@ -12,3 +12,5 @@ See original files if you need to decode other formats.
 
 ***WARNING:*** Although this works, it is **painfully slow.**
 Tested on a Samsung Galaxy S6 phone, the decoding time took roughly as long as the file duration...
+
+***BETTER SOLUTION:*** checkout the ffmpeg branch of this repo for a more efficient method.
